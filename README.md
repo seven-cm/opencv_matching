@@ -2,9 +2,9 @@
 
 - 基于[Fastest Image Pattern Matching](https://github.com/DennisLiu1993/Fastest_Image_Pattern_Matching)
 
-![demo1](asserts/demo1.png)
+![demo1](assets/demo1.png)
 
-![demo2](asserts/demo2.png)
+![demo2](assets/demo2.png)
 
 ## 改进
 
