@@ -1,3 +1,36 @@
+## 更新日志 
+
+### 2025-06-07
+
+#### 1. 目录结构优化
+- **变更类型**：重构(refactor)
+- **修改内容**：
+  - 将 `asserts/` 目录重命名为 `assets/`
+- **影响范围**：所有引用该目录的资源路径
+
+#### 2. 构建配置增强
+- **变更类型**：功能新增(feat)
+- **修改内容**：
+  - 新增 Dockerfile 构建文件
+  - 修改 `demo.cpp` 运行逻辑：
+    ```cpp
+    std::cerr << "Usage: " << argv[0] << " <template_image.png> <target_image.png>" << std::endl;
+    ```
+  - 移除摄像头硬件依赖
+  - 改为通过命令行参数传入图片路径
+- **使用说明**：
+  ```bash
+  ./demo template.png target.png
+  ```
+
+#### 3. 示例代码库扩充
+- **修改内容**：
+  - 新增 `test_demo.py` 模板示例文件
+- **文件位置**：`test_demo.py`
+
+<br/>
+<br/>
+
 # 模板匹配
 
 - 基于[Fastest Image Pattern Matching](https://github.com/DennisLiu1993/Fastest_Image_Pattern_Matching)
