@@ -627,7 +627,7 @@ namespace template_matching {
 			return;
 		}
 
-		logger_->info("成功!");
+		logger_->debug("成功!");
 
 		initFinishedFlag_ = true;
 	}

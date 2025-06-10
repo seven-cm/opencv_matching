@@ -15,7 +15,7 @@ namespace template_matching
 		switch (paramCopy.matcherType)
 		{
 		case MatcherType::PATTERN:
-			logger_->info("Initializing matcher for type: PATTERN");
+			logger_->debug("Initializing matcher for type: PATTERN");
 			matcher = new PatternMatcher(paramCopy);
 			break;
 		default:
