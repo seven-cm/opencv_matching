@@ -250,3 +250,8 @@ extern"C" LIB_API int match(Matcher * obj1, uchar * data, int width, int height,
 	return returnSize;
 
 }
+
+extern "C" LIB_API void release(Matcher * obj1)
+{
+    delete obj1;
+}

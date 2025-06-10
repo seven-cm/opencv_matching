@@ -46,7 +46,8 @@ namespace template_matching
 	@param param 配置参数.
 	*/
 	extern "C" LIB_API Matcher * GetMatcher(const template_matching::MatcherParam& param);
-	
+	/** 释放匹配器对象 */
+	extern "C" LIB_API void release(Matcher * obj1);
 }
 
 #endif
