@@ -28,6 +28,8 @@ class Matcher:
         self.lib.matcher.restype = ctypes.c_void_p
         self.lib.setTemplate.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_ubyte), ctypes.c_int, ctypes.c_int, ctypes.c_int]
         self.lib.match.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_ubyte), ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(MatchResult), ctypes.c_int]
+        self.lib.release.argtypes = [ctypes.c_void_p]
+        self.lib.release.restype = None
         
         if maxCount <= 0:
             raise ValueError("maxCount must be greater than 0")
@@ -59,6 +61,15 @@ class Matcher:
         channels = 1
         data = image.ctypes.data_as(ctypes.POINTER(ctypes.c_ubyte))
         return self.lib.match(self.matcher, data, width, height, channels, self.results, self.maxCount)
+    
+    def release(self):
+        """手动释放 C++ 对象内存"""
+        if hasattr(self, 'matcher') and self.matcher:
+            self.lib.release(self.matcher)
+            self.matcher = None
+    
+    def __del__(self):
+        self.release()
 
 # 示例调用
 maxCount = 1
